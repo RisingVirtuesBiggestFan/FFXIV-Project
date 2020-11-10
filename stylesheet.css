@@ -1,0 +1,66 @@
+:root {
+    --main-color:#000;
+}
+
+body {
+    background-color: var(--main-color);
+}
+
+#titleBlock {
+    color: white;
+    font-size: 7vmin;
+    font-family: fantasy;   
+    text-align: center;
+    vertical-align: top;
+    overflow: visible;
+    margin-bottom: 0;
+}
+
+#pageBreak {
+    background-color: white;
+     vertical-align: top;
+    margin-top: 0;
+}
+
+#searchBar {
+    width: 25vw;
+    height: 28;
+    border: 2;
+    border-color: gray;
+    border-style: solid;
+    border-width: medium;
+    font-size: 18;
+    font-family: sans-serif;
+    vertical-align: middle;
+}
+
+#searchButton {
+    width: 100;
+    height: 28;
+    border-color: gray;
+    border-style: solid;
+    border-width: medium;
+    font-size: 20;
+    font-family: sans-serif;
+    text-align-last: center;
+    animation-delay: 0.5;
+    vertical-align: middle;
+}
+
+#headers {
+    overflow: auto;
+    margin-bottom: auto;
+    color: white;
+    font-size: 25;
+    font-family: fantasy;
+    text-decoration-line: underline;
+}
+
+#itemList {
+    overflow: auto;
+    margin-bottom: auto;
+    color: white;
+    font-size: 25;
+    font-family: fantasy;
+    text-decoration-line: underline;
+}
