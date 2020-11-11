@@ -31,7 +31,6 @@ $(document).ready(function() {
         autoFocus: true,
         minLength: 3
     }); 
-    itemList.innerHTML = database;//putting table using objects here//
 
 } );
 $("#searchButton").click(function() {
@@ -40,6 +39,31 @@ $("#searchButton").click(function() {
 
 
 function searchDatabase() {
-    searchInput = document.getElementById("searchBar").value;
-    itemList.innerHTML = searchInput;
+    //future add check to see if input matches database//
+    //check to make sure input fields are not blank and create table/append//
+    if ($("#searchBar").val() !=null && $("#searchBar").val() !='') {
+        addItemToTable();
+        clearInput();
+    }
+}
+
+function addItemToTable() {
+    if ($("#itemList tbody").length == 0) {
+        $("#itemList").append("<tbody></tbody>");
+    }
+    $("#itemList tbody").append("<tr>" +
+        "<td>" + $("#searchBar").val() + "</td>" +
+        "<td>" + "#" + "</td>" +
+        "<td>" + "STRING" + "</td>" +
+        "<td>" + "<button type='button' onclick='removeRow(this);'> X </button>" +
+        "</td>" +
+        "</tr>");
+}
+
+function clearInput() {
+    $("#searchBar").val("");
+}
+
+function removeRow(ctl) {
+    $(ctl).parents("tr").remove();
 }

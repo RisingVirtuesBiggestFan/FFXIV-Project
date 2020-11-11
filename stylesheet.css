@@ -43,7 +43,7 @@ ul.ui-autocomplete {
     color: #96f226;
     border-radius: 1px;
     border: 1px solid black;
-    width: 31vw;
+    width: 30vw;
     align-items: left;
     padding-left: 0;
 }
@@ -79,11 +79,13 @@ ui-menu.ui-menu-item a{
 }
 
 #itemList {
+    align-content: center;
     overflow: auto;
     margin-bottom: auto;
     color: white;
     font-size: 25;
-    font-family: fantasy;
-    text-decoration-line: underline;
+    font-family: Helvetica;
+    width:100vmin;
+    border: solid;
 }
 
