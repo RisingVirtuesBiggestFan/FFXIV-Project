@@ -1,5 +1,5 @@
 :root {
-    --main-color:dimgray;
+    --main-color: #1b1b1b;
 }
 
 body {
@@ -40,7 +40,7 @@ ul.ui-autocomplete {
     font-size: 18;
     font-family: sans-serif;
     background-color: ghostwhite;
-    color: #96f226;
+    color: #000;
     border-radius: 1px;
     border: 1px solid black;
     width: 30vw;
@@ -73,7 +73,7 @@ ui-menu.ui-menu-item a{
     overflow: auto;
     margin-bottom: auto;
     color: white;
-    font-size: 25;
+    font-size: 2vm;
     font-family: fantasy;
     text-decoration-line: underline;
 }
@@ -83,9 +83,45 @@ ui-menu.ui-menu-item a{
     overflow: auto;
     margin-bottom: auto;
     color: white;
-    font-size: 25;
+    font-size: 2vmin;
     font-family: Helvetica;
     width:100vmin;
     border: solid;
+    text-align: center;
+    border-color:grey;
+    border-width: 1;
+    display: none;
+}
+
+#itemlist caption {
+    color:aliceblue;
+
+    font-size: 2.5vmin;
+    text-align: left;
+    padding-left: 1vmin
+    
+}
+#itemList td:nth-child(2) {
+  background-color: #3c3c3c;
+}
+#itemList td:nth-child(1) {
+    background-color: #2e2e2e;
+    color: #73bfe6;
+}
+#itemList td:nth-child(3) {
+  background-color: #2e2e2e;
+}
+#itemList td:nth-child(4) {
+  background-color: #2e2e2e;
+}
+#itemList th {
+  color: white;
+  background-color: black;
+}
+
+#removeButton {
+    width: auto;
+    height: auto;
+    border-color: red;
 }
 
