@@ -1,8 +1,10 @@
 var itemList;
 var rawMaterialList;
-var searchInput;
 var recipeList;
 var enterInput;
+var runningTally = {
+    items: [],
+}
 var database = [
         "Holy Rainbow Gloves",
         "Maple Lumber",
@@ -51,8 +53,15 @@ $("#searchButton").click(function() {
 
 function searchDatabase() {
     //check to make sure input fields are not blank and create table/append//
-    if ($("#searchBar").val() !=null && $("#searchBar").val() !='' && database.includes($("#searchBar").val())) {
+    if ($("#searchBar").val() !=null && $("#searchBar").val() !='' && database.includes($("#searchBar").val()) && !runningTally.items.includes($("#searchBar").val())) {
         addItemToTable();
+        clearInput();
+    }
+    else {
+        document.getElementById("noItem").innerHTML = "Unable to add item.";
+        setTimeout(function(){
+            document.getElementById("noItem").innerHTML = '';
+            }, 1500);
         clearInput();
     }
 }
@@ -64,13 +73,18 @@ function addItemToTable() {
     if (document.getElementById("itemList").style.display = "none") {
         document.getElementById("itemList").style.display = "table";
     }
+    runningTally.items.push($("#searchBar").val());
+    runningTally.items.sort();
+    $("#itemList tbody").children().remove();
+    for (var i=0; i < runningTally.items.length; i++) {
     $("#itemList tbody").append("<tr>" +
-        "<td>" + $("#searchBar").val() + "</td>" +
+        "<td>" + runningTally.items[i] + "</td>" +
         "<td>" + "#" + "</td>" +
         "<td>" + "STRING" + "</td>" +
         "<td>" + "<button id='removeButton' type='button' onclick='removeRow(this);'> X </button>" +
         "</td>" +
         "</tr>");
+    }
 }
 
 function clearInput() {
@@ -78,6 +92,7 @@ function clearInput() {
 }
 
 function removeRow(rr) {
+    runningTally.items.splice($(rr).parents("#itemList td:nth-child(1)").val(),1)
     $(rr).parents("tr").remove();
     if ($("#itemList tbody").children().length == 0) {
         document.getElementById("itemList").style.display = "none";

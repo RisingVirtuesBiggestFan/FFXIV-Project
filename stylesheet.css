@@ -93,14 +93,17 @@ ui-menu.ui-menu-item a{
     display: none;
 }
 
-#itemlist caption {
+#itemList caption {
     color:aliceblue;
-
     font-size: 2.5vmin;
     text-align: left;
     padding-left: 1vmin
-    
 }
+
+#itemList td {
+    padding-bottom: 3;
+}
+
 #itemList td:nth-child(2) {
   background-color: #3c3c3c;
 }
@@ -124,6 +127,10 @@ ui-menu.ui-menu-item a{
 #removeButton {
     width: auto;
     height: auto;
-    border-color: red;
+    border-color: orangered;
 }
 
+
+#noItem {
+    color: red;
+}
