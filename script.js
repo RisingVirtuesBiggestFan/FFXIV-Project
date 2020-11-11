@@ -60,6 +60,8 @@ function searchDatabase() {
 function addItemToTable() {
     if ($("#itemList tbody").length == 0) {
         $("#itemList").append("<tbody></tbody>");
+    }
+    if (document.getElementById("itemList").style.display = "none") {
         document.getElementById("itemList").style.display = "table";
     }
     $("#itemList tbody").append("<tr>" +
@@ -75,8 +77,12 @@ function clearInput() {
     $("#searchBar").val("");
 }
 
-function removeRow(ctl) {
-    $(ctl).parents("tr").remove();
+function removeRow(rr) {
+    $(rr).parents("tr").remove();
+    if ($("#itemList tbody").children().length == 0) {
+        document.getElementById("itemList").style.display = "none";
+        }
+
 }
 
 

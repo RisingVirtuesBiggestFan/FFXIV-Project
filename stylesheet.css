@@ -107,6 +107,8 @@ ui-menu.ui-menu-item a{
 #itemList td:nth-child(1) {
     background-color: #2e2e2e;
     color: #73bfe6;
+    width: 50vmin;
+    text-align: left;
 }
 #itemList td:nth-child(3) {
   background-color: #2e2e2e;
