@@ -5,36 +5,19 @@ var enterInput;
 var runningTally = {
     items: [],
 }
-var database = [
-        "Holy Rainbow Gloves",
-        "Maple Lumber",
-        "Maple Clogs",
-        "Maple Shortbow",
-        "Bone Harpoon",
-        "Amateur's Grinding Wheel",
-        "Maple Pattens",
-        "Amateur's Spinning Wheel",
-        "Square Maple Shield",
-        "Bronze Spear",
-        "Maple Cane",
-        "Boar Leather",
-        "Raptor Leather",
-        "Aldgoat Leather"
-];
-var databased;
+
 async function getJSON () {
     var data = await $.getJSON('recipe.json')
     return data;
 }
-$(document).ready(function() {
+$(document).ready(async function() {
     
-    var recipes = getJSON();
+    var database = await getJSON();
     itemList = document.getElementById("itemList");
     enterInput = document.getElementById("searchBar");
-    database.sort();
     $("#searchBar").autocomplete({
         source: function(request, response) {
-        var results = $.ui.autocomplete.filter(database, request.term);
+        var results = $.ui.autocomplete.filter(Object.keys(database), request.term);
 
         response(results.slice(0, 5));
         },
@@ -48,18 +31,15 @@ $(document).ready(function() {
             document.getElementById("searchButton").click();
   }
 });
-        console.log(recipes);
-} );
-$("#searchButton").click(function() {
-        searchDatabase();
+    $("#searchButton").click(function() {
+        searchDatabase(database);
             });
+} );
 
-    
 
-
-function searchDatabase() {
+function searchDatabase(database) {
     //check to make sure input fields are not blank and create table/append//
-    if ($("#searchBar").val() !=null && $("#searchBar").val() !='' && database.includes($("#searchBar").val()) && !runningTally.items.includes($("#searchBar").val())) {
+    if ($("#searchBar").val() !=null && $("#searchBar").val() !='' && database.hasOwnProperty($("#searchBar").val()) && !runningTally.items.includes($("#searchBar").val())) {
         addItemToTable();
         clearInput();
     }
