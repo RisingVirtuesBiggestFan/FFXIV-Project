@@ -20,9 +20,14 @@ var database = [
         "Boar Leather",
         "Raptor Leather",
         "Aldgoat Leather"
-            ];
-
+];
+var databased;
 $(document).ready(function() {
+    $.getJSON('recipe.json', function(data) {
+        databased = data;
+        console.log(databased);
+    })
+    
     itemList = document.getElementById("itemList");
     enterInput = document.getElementById("searchBar");
     database.sort();
@@ -34,7 +39,7 @@ $(document).ready(function() {
         },
         autoFocus: true,
         minLength: 2,
-        delay: 100,
+        delay: 50,
     }); 
  
     enterInput.addEventListener("keyup", function(event) {
