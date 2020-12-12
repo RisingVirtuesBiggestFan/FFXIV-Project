@@ -22,13 +22,13 @@ var database = [
         "Aldgoat Leather"
 ];
 var databased;
-$.getJSON('recipe.json', function(data) {
-        databased = data;
-        console.log(databased);
-    })
+async function getJSON () {
+    var data = await $.getJSON('recipe.json')
+    return data;
+}
 $(document).ready(function() {
     
-    
+    var recipes = getJSON();
     itemList = document.getElementById("itemList");
     enterInput = document.getElementById("searchBar");
     database.sort();
@@ -48,7 +48,7 @@ $(document).ready(function() {
             document.getElementById("searchButton").click();
   }
 });
-        console.log(databased);
+        console.log(recipes);
 } );
 $("#searchButton").click(function() {
         searchDatabase();
